@@ -30,3 +30,14 @@ class Prestamo:
 
     def __str__(self):
         return f"Libro: {self.libro.titulo}, Usuario: {self.usuario.nombre}, Fecha de préstamo: {self.fecha_prestamo}, Fecha de devolución: {self.fecha_devolucion}"
+
+class Catalogo:
+    def __init__(self):
+        self.libros = [libro1, libro2, libro3, libro4, libro5]
+        self.usuarios = []
+        self.prestamos = []
+
+class Biblioteca:
+
+    def __init__(self):
+        self.catalogo = Catalogo()
