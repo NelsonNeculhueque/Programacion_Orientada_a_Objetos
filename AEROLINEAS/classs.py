@@ -16,3 +16,19 @@ class Vuelo:
         self.Avion_Asig = Avion_Asig
         self.reservaciones = reservaciones
 
+
+
+class Pasajero:
+    def __init__(self, nombre, num_pasaporte):
+        self.nombre = nombre
+        self.num_pasaporte = num_pasaporte
+        self.vuelos_reservados = []
+
+
+class Reservacion:
+    def __init__(self, num_reservacion, pasajero, vuelo):
+        self.num_reservacion = num_reservacion
+        self.pasajero = pasajero
+        self.vuelo = vuelo
+        self.estado = "reservado"
+        pasajero.vuelos_reservados.append(self)
