@@ -82,3 +82,36 @@
         for libro in self.libros:
             if not libro.prestado:
                 input(f"ID: {libro.id_libro}, Título: {libro.titulo}, Autor: {libro.autor}")
+
+
+    def historial_prestamos_usuario(self, id_usuario):
+            usuario = None
+            for u in self.usuarios:
+                if u.id_usuario == id_usuario:
+                    usuario = u
+                    break
+            if usuario is None:
+                input("Usuario no encontrado.")
+                return
+            input(f"Historial de préstamos de {usuario.nombre}:")
+            for prestamo in usuario.historial_prestamos:
+                fecha_devolucion_str = prestamo.fecha_devolucion.strftime('%Y-%m-%d') if prestamo.fecha_devolucion else 'N/A'
+                input(f"Libro: {prestamo.libro.titulo}, Fecha de préstamo: {prestamo.fecha_prestamo.strftime('%Y-%m-%d')}, Fecha de devolución: {fecha_devolucion_str}")
+
+
+
+
+    def mostrar_libros_disponibles(self):
+        os.system('cls')
+        print(f'''          -LIBROS DISPONIBLES-''' '\n' '\n')
+        self.catalogo.consultar_libros_disponibles()
+        input("Presiona Enter para volver al menú principal...")
+
+    def realizar_prestamo(self):
+        os.system('cls')
+        print(f'''          -REALIZAR PRESTAMO-''' '\n' '\n')
+        id_libro = int(input("Ingrese el ID del libro a prestar: "))
+        id_usuario = int(input("Ingrese el ID del usuario: "))
+        fecha_prestamo = input("Ingrese la fecha de préstamo (YYYY-MM-DD): ")
+        fecha_prestamo_obj = datetime.strptime(fecha_prestamo, '%Y-%m-%d')
+        self.catalogo.prestar_libro(id_libro, id_usuario, fecha_prestamo_obj)            
