@@ -141,3 +141,27 @@
         nuevo_libro = Libro(id_libro, titulo, autor)
         self.catalogo.agregar_libro(nuevo_libro)
         print("Libro agregado al catálogo.")
+
+    def eliminar_libro(self):
+        os.system('cls')
+        print(f'''          -ELIMINAR LIBRO-''' '\n' '\n')
+        id_libro = int(input("Ingrese el ID del libro a eliminar: "))
+        self.catalogo.eliminar_libro(id_libro)
+        input("Presiona Enter para volver al menú principal...")
+
+    def registrar_usuario(self):
+        os.system('cls')
+        print(f'''          -REGISTRAR USUARIO-''' '\n' '\n')
+        id_usuario = int(input("Ingrese el ID del usuario: "))
+        nombre = input("Ingrese el nombre del usuario: ")
+        nuevo_usuario = Usuario(id_usuario, nombre)
+        self.catalogo.registrar_usuario(nuevo_usuario)
+        print("Usuario registrado.")
+
+    def mostrar_usuarios(self):
+        os.system('cls')
+        print(f'''          -MOSTRAR USUARIOS-''' '\n' '\n')
+        print("Usuarios registrados:")
+        for usuario in self.catalogo.usuarios:
+            print(f"ID: {usuario.id_usuario}, Nombre: {usuario.nombre}")
+        input("Presiona Enter para volver al menú principal...")    
