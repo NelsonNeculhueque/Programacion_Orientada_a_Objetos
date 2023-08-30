@@ -32,3 +32,8 @@ class Reservacion:
         self.vuelo = vuelo
         self.estado = "reservado"
         pasajero.vuelos_reservados.append(self)
+
+class PlataformaReservaciones:
+    def __init__(self):
+        self.vuelos_disponibles = [Vuelo_1,Vuelo_2,Vuelo_3]
+        self.pasajeros = []
