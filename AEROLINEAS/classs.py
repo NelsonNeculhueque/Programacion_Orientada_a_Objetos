@@ -16,9 +16,11 @@ class Vuelo:
         self.Avion_Asig = Avion_Asig
         self.reservaciones = reservaciones
 
+
 Vuelo_1 = Vuelo("AR 1240", "Chile", "New York", "12-08-2023 14:00", Avion_1,[])
 Vuelo_2 = Vuelo("LA 1311", "Peru", "China", "08-04-2023 13:30", Avion_2,[])
 Vuelo_3 = Vuelo("AK 4200", "Colombia", "España", "01-12-2023 16:00", Avion_3,[])
+
 
 
 class Pasajero:
@@ -35,4 +37,3 @@ class Reservacion:
         self.vuelo = vuelo
         self.estado = "reservado"
         pasajero.vuelos_reservados.append(self)
-
