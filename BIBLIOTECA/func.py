@@ -114,4 +114,30 @@
         id_usuario = int(input("Ingrese el ID del usuario: "))
         fecha_prestamo = input("Ingrese la fecha de préstamo (YYYY-MM-DD): ")
         fecha_prestamo_obj = datetime.strptime(fecha_prestamo, '%Y-%m-%d')
-        self.catalogo.prestar_libro(id_libro, id_usuario, fecha_prestamo_obj)            
+        self.catalogo.prestar_libro(id_libro, id_usuario, fecha_prestamo_obj) 
+
+    def realizar_devolucion(self):
+        os.system('cls')
+        print(f'''          -REALIZAR DEVOLUCION-''' '\n' '\n')
+        id_libro = int(input("Ingrese el ID del libro a devolver: "))
+        id_usuario = int(input("Ingrese el ID del usuario: "))
+        fecha_devolucion = input("Ingrese la fecha de devolución (YYYY-MM-DD): ")
+        fecha_devolucion_obj = datetime.strptime(fecha_devolucion, '%Y-%m-%d')
+        self.catalogo.devolver_libro(id_libro, id_usuario, fecha_devolucion_obj)
+
+    def historial_prestamos_usuario(self):
+        os.system('cls')
+        print(f'''          -HISTORIAL PRESTAMOS USUARIO-''' '\n' '\n')
+        id_usuario = int(input("Ingrese el ID del usuario para ver su historial de préstamos: "))
+        self.catalogo.historial_prestamos_usuario(id_usuario)
+
+
+    def agregar_libro(self):
+        os.system('cls')
+        print(f'''          -AGREGAR LIBRO-''' '\n' '\n')
+        id_libro = int(input("Ingrese el ID del libro: "))
+        titulo = input("Ingrese el título del libro: ")
+        autor = input("Ingrese el autor del libro: ")
+        nuevo_libro = Libro(id_libro, titulo, autor)
+        self.catalogo.agregar_libro(nuevo_libro)
+        print("Libro agregado al catálogo.")
